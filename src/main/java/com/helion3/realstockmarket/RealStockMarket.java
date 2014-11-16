@@ -193,6 +193,10 @@ public class RealStockMarket extends JavaPlugin {
         		return true;
     		}
     		
+    		if ( args[1].matches("^.*=X$") && !args[1].matches("^.*USD=X$") {
+    			sender.sendMessage ( messenger.playerError("You may not exchange currencies except from USD.") );
+    		}
+    		
     		if( !TypeUtils.isNumeric(args[2]) ){
     			sender.sendMessage( messenger.playerError("Quantity must be a number. Check /sm ? for help.") );
         		return true;
